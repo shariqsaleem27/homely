@@ -112,3 +112,30 @@
     cursor: pointer;
   }
   
+
+  /* How it works section */
+.how-it-works {
+  padding: 50px 0;
+}
+
+.how-it-works h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff6f00;
+  margin-bottom: 40px;
+}
+
+.how-it-works img {
+  width: 80px;
+  height: auto;
+}
+
+.how-it-works h5 {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.how-it-works p {
+  color: #777;
+}
