@@ -139,3 +139,53 @@
 .how-it-works p {
   color: #777;
 }
+
+/* Special Offer Section */
+.special-offer-section {
+  background: linear-gradient(to bottom right, #FFBB33, #FF6F00);
+  padding: 100px 0;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+ 
+.special-offer-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+ 
+.special-offer-section h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #FF6F00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.special-offer-section h3 img {
+  margin-right: 10px;
+}
+ 
+.special-offer-section p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+ 
+.special-offer-section .btn-large {
+  background-color: #FF6F00;
+  border-radius: 30px;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  color: white;
+}
+ 
+.special-offer-section .btn-large:hover {
+  background-color: #FFA726;
+}
