@@ -1,0 +1,41 @@
+/* Order Management Styling */
+.order-management {
+    margin-top: 40px;
+}
+ 
+.tabs .tab a {
+    color: #ff6f00;
+}
+ 
+.tabs .tab a.active {
+    background-color: #ff6f00;
+    color: white;
+}
+ 
+.order-card {
+    margin-bottom: 20px;
+}
+ 
+.order-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+ 
+.order-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+ 
+.order-card .card-content p {
+    font-size: 1rem;
+    color: #777;
+}
+ 
+.order-card .card-action a {
+    margin-right: 15px;
+}
+ 
+.tabs .indicator {
+    background-color: #ff6f00;
+}
