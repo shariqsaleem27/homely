@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+ 
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Cook Dashboard</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html" class="btn-small waves-effect waves-light">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+ 
+    <!-- Order Management Section -->
+    <div class="container order-management">
+        <h4 class="center-align">Order Management</h4>
+ 
+        <!-- Order Status Tabs -->
+        <ul class="tabs">
+            <li class="tab col s4"><a href="#pending-orders" class="active">Pending Orders</a></li>
+            <li class="tab col s4"><a href="#accepted-orders">Accepted Orders</a></li>
+            <li class="tab col s4"><a href="#completed-orders">Completed Orders</a></li>
+        </ul>
+ 
+        <!-- Pending Orders Section -->
+        <div id="pending-orders" class="col s12">
+            <div class="row" id="pending-orders-grid">
+                <!-- Pending orders will be rendered here -->
+            </div>
+        </div>
+ 
+        <!-- Accepted Orders Section -->
+        <div id="accepted-orders" class="col s12">
+            <div class="row" id="accepted-orders-grid">
+                <!-- Accepted orders will be rendered here -->
+            </div>
+        </div>
+ 
+        <!-- Completed Orders Section -->
+        <div id="completed-orders" class="col s12">
+            <div class="row" id="completed-orders-grid">
+                <!-- Completed orders will be rendered here -->
+            </div>
+        </div>
+    </div>
+ 
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
+ 
+</body>
+</html>
+ 
