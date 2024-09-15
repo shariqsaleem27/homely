@@ -1,0 +1,29 @@
+/* Dish Management Styling */
+.dish-management {
+    margin-top: 40px;
+}
+ 
+.dish-card {
+    margin-bottom: 20px;
+}
+ 
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+ 
+.dish-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+ 
+.dish-card .card-content p {
+    font-size: 1rem;
+    color: #777;
+}
+ 
+.dish-card .card-action a {
+    margin-right: 15px;
+}
+ 

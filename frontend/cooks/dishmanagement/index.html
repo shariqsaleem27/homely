@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Management</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+ 
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Cook Dashboard</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html" class="btn-small waves-effect waves-light">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+ 
+    <!-- Dish Management Section -->
+    <div class="container dish-management">
+        <h4 class="center-align">Manage Your Dishes</h4>
+ 
+        <!-- Add New Dish Button -->
+        <div class="row">
+            <div class="col s12">
+                <a href="#add-dish-modal" class="btn-large waves-effect waves-light modal-trigger"><i class="material-icons left">add</i>Add New Dish</a>
+            </div>
+        </div>
+ 
+        <!-- Dishes Grid -->
+        <div class="row" id="dish-grid">
+            <!-- Dish items will be dynamically added here by JavaScript -->
+        </div>
+    </div>
+ 
+    <!-- Add/Edit Dish Modal -->
+    <div id="add-dish-modal" class="modal">
+        <div class="modal-content">
+            <h5 id="modal-title">Add/Edit Dish</h5>
+            <form id="dish-form">
+                <div class="input-field">
+                    <input type="text" id="dish-name" name="dish-name" required>
+                    <label for="dish-name">Dish Name</label>
+                </div>
+ 
+                <div class="input-field">
+                    <input type="number" id="dish-price" name="dish-price" required>
+                    <label for="dish-price">Price ($)</label>
+                </div>
+ 
+                <div class="input-field">
+                    <textarea id="dish-description" name="dish-description" class="materialize-textarea" required></textarea>
+                    <label for="dish-description">Description</label>
+                </div>
+ 
+                <div class="input-field">
+                    <input type="url" id="dish-image" name="dish-image" required>
+                    <label for="dish-image">Image URL</label>
+                </div>
+ 
+                <button type="submit" class="btn waves-effect waves-light">Save Dish</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+ 
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
+ 
+</body>
+</html>
+ 
