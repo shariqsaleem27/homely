@@ -6,112 +6,86 @@
     <title>Cook Dashboard</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles.css">
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Chart.js for charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav>
-        <div class="nav-wrapper">
+    <nav class="nav-wrapper teal darken-3">
+        <div class="container">
             <a href="#" class="brand-logo">Cook Dashboard</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#"><i class="material-icons">notifications</i></a></li>
-                <li><a href="profile.html" class="btn-small waves-effect waves-light">Profile</a></li>
+                <li><a href="./dishmanagement/index.html">Dish Management</a></li>
+                <li><a href="./manageorders/index.html">Order Management</a></li>
+                <li><a href="./auth/index.html" class="btn-small waves-effect waves-light">Login</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Dashboard Main Content -->
-    <div class="container dashboard">
-        <div class="row">
-            <!-- Earnings Card -->
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Earnings</span>
-                        <h5>Total: $3,540.00</h5>
-                        <canvas id="earningsChart"></canvas>
+    <!-- Hero Section -->
+    <section class="section center-align" id="hero-section">
+        <div class="container">
+            <h4 class="teal-text">Welcome to Your Cook Dashboard</h4>
+            <p class="flow-text">Manage your dishes and orders effortlessly and keep track of customer feedback.</p>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback-section" class="section grey lighten-3">
+        <div class="container">
+            <h5 class="center-align teal-text">Customer Feedback</h5>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card hoverable">
+                        <div class="card-content">
+                            <span class="card-title"><i class="material-icons left">person</i> John Doe</span>
+                            <p>"The food was delicious and delivered on time. Will definitely order again!"</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="teal-text">Reply</a>
+                            <a href="#" class="teal-text"><i class="material-icons left">thumb_up</i>Like</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="card hoverable">
+                        <div class="card-content">
+                            <span class="card-title"><i class="material-icons left">person</i> Jane Smith</span>
+                            <p>"Amazing experience! The pasta was freshly made and so flavorful."</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="teal-text">Reply</a>
+                            <a href="#" class="teal-text"><i class="material-icons left">thumb_up</i>Like</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Orders List -->
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Pending Orders</span>
-                        <ul class="collection">
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">restaurant</i>
-                                <span class="title">Order #1234</span>
-                                <p>Grey's Veg <br> $12.99</p>
-                                <a href="#" class="secondary-content"><i class="material-icons">check_circle</i></a>
-                            </li>
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">restaurant</i>
-                                <span class="title">Order #1235</span>
-                                <p>Healthy Pasta <br> $10.99</p>
-                                <a href="#" class="secondary-content"><i class="material-icons">check_circle</i></a>
-                            </li>
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">restaurant</i>
-                                <span class="title">Order #1236</span>
-                                <p>Avocado Bowl <br> $8.99</p>
-                                <a href="#" class="secondary-content"><i class="material-icons">check_circle</i></a>
-                            </li>
-                        </ul>
-                    </div>
+            <!-- Add more feedback here -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="page-footer teal darken-3">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Cook Dashboard</h5>
+                    <p class="grey-text text-lighten-4">Manage your restaurant orders and customer feedback all in one place.</p>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <!-- Meal Management -->
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Manage Meals</span>
-                        <a href="add-meal.html" class="btn waves-effect waves-light"><i class="material-icons left">add</i>Add Meal</a>
-                        <ul class="collection">
-                            <li class="collection-item">Grey's Veg <a href="#" class="secondary-content"><i class="material-icons">edit</i></a></li>
-                            <li class="collection-item">Healthy Pasta <a href="#" class="secondary-content"><i class="material-icons">edit</i></a></li>
-                            <li class="collection-item">Avocado Bowl <a href="#" class="secondary-content"><i class="material-icons">edit</i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Customer Feedback -->
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-content">
-                        <span class="card-title">Customer Feedback</span>
-                        <ul class="collection">
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">person</i>
-                                <span class="title">John Doe</span>
-                                <p>"The food was amazing!"</p>
-                                <a href="#" class="secondary-content"><i class="material-icons">thumb_up</i></a>
-                            </li>
-                            <li class="collection-item avatar">
-                                <i class="material-icons circle">person</i>
-                                <span class="title">Jane Smith</span>
-                                <p>"Fast delivery and delicious."</p>
-                                <a href="#" class="secondary-content"><i class="material-icons">thumb_up</i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2024 Cook Dashboard
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- JavaScript for chart rendering -->
-    <script src="./script.js"></script>
-
+    <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
