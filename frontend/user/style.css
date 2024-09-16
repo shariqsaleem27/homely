@@ -181,7 +181,7 @@
 .special-offer-section .btn-large {
   background-color: #FF6F00;
   border-radius: 30px;
-  padding: 15px 40px;
+  /* padding: 15px 40px; */
   font-size: 1.2rem;
   color: white;
 }
