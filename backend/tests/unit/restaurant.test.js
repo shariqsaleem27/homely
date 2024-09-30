@@ -12,7 +12,7 @@ jest.mock("../schemas/restaurant");
 
 const Restaurant = require("../../schemas/restaurant");
 
-const router = require("../../routes/restaurantRoutes"); // Adjust the path as needed
+const router = require("../../routes/restaurantRoutes");
 
 const app = express();
 app.use(express.json());
