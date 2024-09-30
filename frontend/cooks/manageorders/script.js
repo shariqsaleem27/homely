@@ -1,95 +1,107 @@
-// order-management.js
- 
-// Mock data for orders
-const orders = [
-    {
-        id: 1,
-        status: 'pending',
-        name: "Grey's Veg",
-        price: 12.99,
-        customer: 'John Doe',
-        image: "https://images.unsplash.com/photo-1559717763-bb1ab6b1dbac?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-    },
-    {
-        id: 2,
-        status: 'accepted',
-        name: "Healthy Pasta",
-        price: 10.99,
-        customer: 'Jane Smith',
-        image: "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-    },
-    {
-        id: 3,
-        status: 'completed',
-        name: "Avocado Bowl",
-        price: 8.99,
-        customer: 'Alex Johnson',
-        image: "https://images.unsplash.com/photo-1564936289921-1caaa7f3d661?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-    }
-];
- 
-// Initialize Tabs
-document.addEventListener('DOMContentLoaded', function() {
-    var tabs = document.querySelectorAll('.tabs');
+// Initialize Tabs and fetch orders on page load
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tabs");
     M.Tabs.init(tabs);
-    renderOrders();
-});
- 
-// Function to render orders
-function renderOrders() {
-    const pendingOrdersGrid = document.getElementById('pending-orders-grid');
-    const acceptedOrdersGrid = document.getElementById('accepted-orders-grid');
-    const completedOrdersGrid = document.getElementById('completed-orders-grid');
- 
-    pendingOrdersGrid.innerHTML = '';
-    acceptedOrdersGrid.innerHTML = '';
-    completedOrdersGrid.innerHTML = '';
- 
-    orders.forEach(order => {
-        const orderCard = document.createElement('div');
-        orderCard.classList.add('col', 's12', 'm6', 'l4');
-        orderCard.innerHTML = `
-            <div class="card order-card">
-                <div class="card-image">
-                    <img src="${order.image}" alt="${order.name}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title">${order.name}</span>
-                    <p>Customer: ${order.customer}</p>
-                    <p>$${order.price.toFixed(2)}</p>
-                </div>
-                <div class="card-action">
-                    ${order.status === 'pending' ? `<a href="#" onclick="acceptOrder(${order.id})"><i class="material-icons left">check_circle</i>Accept</a>` : ''}
-                    ${order.status === 'accepted' ? `<a href="#" onclick="completeOrder(${order.id})"><i class="material-icons left">done</i>Complete</a>` : ''}
-                </div>
+   
+    const restaurantId = localStorage.getItem("restaurantId");
+   
+    if (restaurantId) {
+      fetchOrders(restaurantId);
+    } else {
+      console.error("Restaurant ID not found in localStorage.");
+    }
+  });
+   
+  // Function to fetch orders from the backend for the given restaurant
+  async function fetchOrders(restaurantId) {
+    try {
+      const response = await fetch(`http://localhost:5000/api/orders/${restaurantId}`);
+      const data = await response.json();
+   
+      if (data.success) {
+        const { pendingOrders, acceptedOrders, completedOrders } = data.data;
+        renderOrders(pendingOrders, acceptedOrders, completedOrders);
+      } else {
+        console.error("Error fetching orders:", data.message);
+      }
+    } catch (err) {
+      console.error("Error fetching orders:", err);
+    }
+  }
+   
+  // Function to render orders by status
+  function renderOrders(pendingOrders, acceptedOrders, completedOrders) {
+    const pendingOrdersGrid = document.getElementById("pending-orders-grid");
+    const acceptedOrdersGrid = document.getElementById("accepted-orders-grid");
+    const completedOrdersGrid = document.getElementById("completed-orders-grid");
+   
+    // Clear existing orders
+    pendingOrdersGrid.innerHTML = "";
+    acceptedOrdersGrid.innerHTML = "";
+    completedOrdersGrid.innerHTML = "";
+   
+    // Render pending orders
+    pendingOrders.forEach((order) => createOrderCard(order, pendingOrdersGrid));
+   
+    // Render accepted orders
+    acceptedOrders.forEach((order) => createOrderCard(order, acceptedOrdersGrid));
+   
+    // Render completed orders
+    completedOrders.forEach((order) =>
+      createOrderCard(order, completedOrdersGrid)
+    );
+  }
+   
+  // Helper function to create order card and append it to the respective grid
+  function createOrderCard(order, gridElement) {
+    const orderCard = document.createElement("div");
+    orderCard.classList.add("col", "s12", "m6", "l4");
+    orderCard.innerHTML = `
+          <div class="card order-card">
+            <div class="card-image">
+              <img src="${order.items[0].image}" alt="${order.items[0].dishName}">
             </div>
+            <div class="card-content">
+              <span class="card-title">${order.items[0].dishName}</span>
+              <p>Customer: ${order.customerName}</p>
+              <p>$${order.totalAmount.toFixed(2)}</p>
+            </div>
+            <div class="card-action">
+              ${order.items.some(item => item.status === "Pending") 
+                ? `<a href="#" onclick="updateOrderStatus('${order._id}', 'Accepted')"><i class="material-icons left">check_circle</i>Accept</a>` 
+                : ""}
+              ${order.items.some(item => item.status === "Accepted") 
+                ? `<a href="#" onclick="updateOrderStatus('${order._id}', 'Completed')"><i class="material-icons left">done</i>Complete</a>` 
+                : ""}
+            </div>
+          </div>
         `;
- 
-        if (order.status === 'pending') {
-            pendingOrdersGrid.appendChild(orderCard);
-        } else if (order.status === 'accepted') {
-            acceptedOrdersGrid.appendChild(orderCard);
-        } else if (order.status === 'completed') {
-            completedOrdersGrid.appendChild(orderCard);
+    gridElement.appendChild(orderCard);
+  }
+   
+  // Function to update order status (Accept/Complete)
+  async function updateOrderStatus(orderId, newStatus) {
+    try {
+      const response = await fetch(`http://localhost:5000/api/orders/${orderId}/status`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status: newStatus }),
+      });
+   
+      if (response.ok) {
+        // Refetch and re-render orders after status update
+        const restaurantId = localStorage.getItem("restaurantId"); // Use restaurantId from localStorage
+        if (restaurantId) {
+          fetchOrders(restaurantId);
+        } else {
+          console.error("Restaurant ID not found in localStorage.");
         }
-    });
-}
- 
-// Function to accept an order
-function acceptOrder(orderId) {
-    const order = orders.find(o => o.id === orderId);
-    if (order) {
-        order.status = 'accepted';
-        renderOrders();
+      } else {
+        console.error("Failed to update order status");
+      }
+    } catch (err) {
+      console.error("Error updating order status:", err);
     }
-}
- 
-// Function to complete an order
-function completeOrder(orderId) {
-    const order = orders.find(o => o.id === orderId);
-    if (order) {
-        order.status = 'completed';
-        renderOrders();
-    }
-}
- 
+  }
