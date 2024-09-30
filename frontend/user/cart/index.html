@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="./style.css">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-<body>
-  
-  <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper">
-      <a href="../index.html" class="brand-logo">Homely</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="cart.html"><img src="https://img.icons8.com/ios-filled/24/ffffff/shopping-cart.png" alt="Cart Icon" /> Cart</a></li>
-        <li><a href="login.html" class="btn-small waves-effect waves-light">Login</a></li>
-      </ul>
-    </div>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="../index.html" class="brand-logo">Homely</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="cart.html"
+              ><img
+                src="https://img.icons8.com/ios-filled/24/ffffff/shopping-cart.png"
+                alt="Cart Icon"
+              />
+              Cart</a
+            >
+          </li>
+          <li>
+            <a href="login.html" class="btn-small waves-effect waves-light"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- Cart Screen -->
-  <div class="container cart-screen">
-    <h4 class="center-align">Your Shopping Cart</h4>
-    <div id="cart-items" class="cart-items">
-      <!-- Cart items will be inserted here by JavaScript -->
-    </div>
-    
-    <!-- Cart Summary and Checkout -->
-    <div class="cart-summary">
-      <h5>Total: <span id="cart-total">$0.00</span></h5>
-      <button class="btn-large waves-effect waves-light" id="place-order-btn">Place Order</button>
-    </div>
-  </div>
+    <!-- Cart Screen -->
+    <div class="container cart-screen">
+      <h4 class="center-align">Your Shopping Cart</h4>
+      <div id="cart-items" class="cart-items">
+        <!-- Cart items will be inserted here by JavaScript -->
+      </div>
 
-  <!-- External JavaScript -->
-  <script src="./script.js"></script>
-</body>
+      <!-- Cart Summary and Checkout -->
+      <div class="cart-summary">
+        <h5>Total: <span id="cart-total">$0.00</span></h5>
+        <button class="btn-large waves-effect waves-light" id="place-order-btn">
+          Place Order
+        </button>
+      </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="./script.js"></script>
+  </body>
 </html>
+
+

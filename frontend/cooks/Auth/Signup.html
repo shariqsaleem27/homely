@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cook Registration</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="nav-wrapper teal darken-3">
-        <div class="container">
-            <a href="#" class="brand-logo">Cook Dashboard</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="login.html" class="btn-small waves-effect waves-light">Login</a></li>
-            </ul>
-        </div>
+      <div class="container">
+        <a href="#" class="brand-logo">Cook Dashboard</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="login.html" class="btn-small waves-effect waves-light"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
-
+ 
     <!-- Registration Form -->
     <div class="container">
-        <h4 class="center-align">Cook Registration</h4>
-
-        <form action="#" method="post">
-            <div class="row">
-                <div class="input-field col s12 m6">
-                    <input id="first_name" type="text" class="validate" required>
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <input id="last_name" type="text" class="validate" required>
-                    <label for="last_name">Last Name</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12 m6">
-                    <input id="phone" type="tel" class="validate" required>
-                    <label for="phone">Phone Number</label>
-                </div>
-                <div class="input-field col s12 m6">
-                    <input id="restaurant_name" type="text" class="validate" required>
-                    <label for="restaurant_name">Restaurant Name</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="location" type="text" class="validate" required>
-                    <label for="location">Location of Restaurant</label>
-                </div>
-            </div>
-
-            <div class="row center-align">
-                <button class="btn-large waves-effect waves-light teal darken-3" type="submit" name="action">Register
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-        </form>
+      <h4 class="center-align">Cook Registration</h4>
+ 
+      <form id="signup-form" method="post">
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="first_name" type="text" class="validate" required />
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="last_name" type="text" class="validate" required />
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+ 
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="phone" type="tel" class="validate" required />
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="input-field col s12 m6">
+            <input id="restaurant_name" type="text" class="validate" required />
+            <label for="restaurant_name">Restaurant Name</label>
+          </div>
+        </div>
+ 
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="location" type="text" class="validate" required />
+            <label for="location">Location of Restaurant</label>
+          </div>
+        </div>
+ 
+        <!-- New Password Field -->
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <input id="password" type="password" class="validate" required />
+            <label for="password">Password</label>
+          </div>
+        </div>
+ 
+        <div class="row center-align">
+          <button
+            class="btn-large waves-effect waves-light teal darken-3"
+            type="submit"
+            name="action"
+          >
+            Register
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
     </div>
-
+ 
     <!-- Footer -->
     <footer class="page-footer teal darken-3">
-        <div class="container">
-            <div class="row">
-                <div class="col s12 center-align">
-                    <p class="white-text">&copy; 2024 Cook Dashboard - All Rights Reserved</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <p class="white-text">
+              &copy; 2024 Cook Dashboard - All Rights Reserved
+            </p>
+          </div>
         </div>
+      </div>
     </footer>
-
+ 
     <!-- External JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+    <script src="./script.js"></script>
+    <!-- Make sure to include the script.js -->
+  </body>
 </html>
